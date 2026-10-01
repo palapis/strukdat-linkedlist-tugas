@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <limits>
 using namespace std;
 
 // Struktur Node Mahasiswa
@@ -17,6 +18,9 @@ Mahasiswa* head = nullptr;
 // Deklarasi fungsi
 void insertHead(string nim, string nama, float persentaseKehadiran);
 void insertLast(string nim, string nama, float persentaseKehadiran);
+void deleteHead();
+void deleteLast();
+void cetakDaftar();
 
 // Insert di kepala list (head)
 void insertHead(string nim, string nama, float persentaseKehadiran) {
@@ -49,6 +53,41 @@ void insertLast(string nim, string nama, float persentaseKehadiran) {
     cout << "\n[BERHASIL] Mahasiswa berhasil ditambahkan di belakang (last).\n";
 }
 
+// Hapus node paling depan (head)
+void deleteHead() {
+    if (head == nullptr) {
+        cout << "\n[PIHAN] List kosong, tidak ada yang dihapus.\n";
+        return;
+    }
+    Mahasiswa* temp = head;
+    head = head->next;
+    cout << "\n[DIHAPUS] Mahasiswa '" << temp->nama << "' (NIM: " << temp->nim << ") dihapus dari depan.\n";
+    delete temp;
+}
+
+// Hapus node paling belakang (last)
+void deleteLast() {
+    if (head == nullptr) {
+        cout << "\n[PIHAN] List kosong, tidak ada yang dihapus.\n";
+        return;
+    }
+    if (head->next == nullptr) {
+        // Hanya satu node
+        cout << "\n[DIHAPUS] Mahasiswa '" << head->nama << "' (NIM: " << head->nim << ") dihapus dari belakang.\n";
+        delete head;
+        head = nullptr;
+        return;
+    }
+    Mahasiswa* temp = head;
+    while (temp->next->next != nullptr) {
+        temp = temp->next;
+    }
+    Mahasiswa* toDelete = temp->next;
+    cout << "\n[DIHAPUS] Mahasiswa '" << toDelete->nama << "' (NIM: " << toDelete->nim << ") dihapus dari belakang.\n";
+    delete toDelete;
+    temp->next = nullptr;
+}
+
 // Inisialisasi data awal 16 mahasiswa
 void initDataAwal() {
     insertLast("103032500150", "Naufal Nafiz Fathurrahman", 92.50);
@@ -70,10 +109,8 @@ void initDataAwal() {
 }
 
 int main() {
-    // Masukkan data awal
     initDataAwal();
-
-    cout << "Data awal 16 mahasiswa berhasil dimasukkan.\n";
-    cout << "Fitur insertHead dan insertLast sudah tersedia.\n";
+    cout << "Data awal 16 mahasiswa dimasukkan.\n";
+    cout << "Fungsi insertHead, insertLast, deleteHead, deleteLast tersedia.\n";
     return 0;
 }
