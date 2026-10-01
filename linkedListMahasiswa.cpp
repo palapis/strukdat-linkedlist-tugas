@@ -108,9 +108,105 @@ void initDataAwal() {
     insertLast("103032500165", "Otavio Silva", 86.00);
 }
 
+
+// Cetak seluruh isi list
+void cetakDaftar() {
+    cout << "\n==========================================================\n";
+    cout << setw(5) << left << "No"
+         << setw(20) << left << "NIM"
+         << setw(25) << left << "Nama"
+         << setw(20) << right << "Persentase Kehadiran\n";
+    cout << "----------------------------------------------------------\n";
+
+    if (head == nullptr) {
+        cout << "List kosong.\n";
+    } else {
+        Mahasiswa* temp = head;
+        int i = 1;
+        while (temp != nullptr) {
+            cout << setw(5) << left << i
+                 << setw(20) << left << temp->nim
+                 << setw(25) << left << temp->nama
+                 << setw(18) << right << fixed << setprecision(2) << temp->persentaseKehadiran << "%\n";
+            temp = temp->next;
+            i++;
+        }
+    }
+    cout << "==========================================================\n";
+}
+
 int main() {
+    // Masukkan data awal
     initDataAwal();
-    cout << "Data awal 16 mahasiswa dimasukkan.\n";
-    cout << "Fungsi insertHead, insertLast, deleteHead, deleteLast tersedia.\n";
+
+    int pilihan;
+    string nim, nama;
+    float persentase;
+
+    do {
+        cout << "\n========================================\n";
+        cout << "   PROGRAM SINGLE LINKED LIST\n";
+        cout << "   KEHADIRAN MAHASISWA\n";
+        cout << "========================================\n";
+        cout << "1. Insert Head (tambah di depan)\n";
+        cout << "2. Insert Last (tambah di belakang)\n";
+        cout << "3. Delete Head (hapus paling depan)\n";
+        cout << "4. Delete Last (hapus paling belakang)\n";
+        cout << "5. Cetak Daftar (lihat semua)\n";
+        cout << "6. Keluar\n";
+        cout << "========================================\n";
+        cout << "Pilih menu: ";
+        cin >> pilihan;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "\n[ERROR] Input tidak valid. Masukkan angka 1-6.\n";
+            continue;
+        }
+
+        switch (pilihan) {
+            case 1:
+                cout << "\n--- Insert Head ---\n";
+                cout << "Masukkan NIM     : ";
+                cin >> nim;
+                cout << "Masukkan Nama    : ";
+                cin.ignore();
+                getline(cin, nama);
+                cout << "Masukkan Persentase Kehadiran : ";
+                cin >> persentase;
+                insertHead(nim, nama, persentase);
+                break;
+            case 2:
+                cout << "\n--- Insert Last ---\n";
+                cout << "Masukkan NIM     : ";
+                cin >> nim;
+                cout << "Masukkan Nama    : ";
+                cin.ignore();
+                getline(cin, nama);
+                cout << "Masukkan Persentase Kehadiran : ";
+                cin >> persentase;
+                insertLast(nim, nama, persentase);
+                break;
+            case 3:
+                cout << "\n--- Delete Head ---\n";
+                deleteHead();
+                break;
+            case 4:
+                cout << "\n--- Delete Last ---\n";
+                deleteLast();
+                break;
+            case 5:
+                cetakDaftar();
+                break;
+            case 6:
+                cout << "\nTerima kasih! Program selesai.\n";
+                break;
+            default:
+                cout << "\n[ERROR] Pilihan tidak valid. Masukkan angka 1-6.\n";
+                break;
+        }
+    } while (pilihan != 6);
+
     return 0;
 }
