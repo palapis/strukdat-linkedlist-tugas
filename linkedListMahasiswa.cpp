@@ -91,21 +91,21 @@ void deleteLast() {
 // Inisialisasi data awal 16 mahasiswa
 void initDataAwal() {
     insertLast("103032500150", "Naufal Nafiz Fathurrahman", 92.50);
-    insertLast("103032500151", "Adi Wahyu Pratama", 85.00);
-    insertLast("103032500152", "Budi Santoso", 78.25);
-    insertLast("103032500153", "Citra Dewi", 95.00);
-    insertLast("103032500154", "Doni Setiawan", 80.00);
-    insertLast("103032500155", "Eka Putri", 88.50);
-    insertLast("103032500156", "Fajar Mukti", 75.75);
-    insertLast("103032500157", "Gita Lestari", 91.00);
-    insertLast("103032500158", "Hari Surya", 87.25);
-    insertLast("103032500159", "Indah Ayu", 93.50);
-    insertLast("103032500160", "Jaka Taruna", 82.00);
-    insertLast("103032500161", "Kartika Noor", 89.75);
-    insertLast("103032500162", "Lina Marlina", 79.00);
-    insertLast("103032500163", "Mochamad Rizki", 90.50);
-    insertLast("103032500164", "Nurul Huda", 84.25);
-    insertLast("103032500165", "Otavio Silva", 86.00);
+    insertLast("103032500151", "Fazli Baktiadi", 85.00);
+    insertLast("103032500152", "Dare Haqu ", 78.25);
+    insertLast("103032500153", "Fariz Muhtadi", 95.00);
+    insertLast("103032500154", "Fathin Arib", 80.00);
+    insertLast("103032500155", "Gyio Rangga", 88.50);
+    insertLast("103032500156", "Matthew Glenn", 75.75);
+    insertLast("103032500157", "Ida Bagus Harell", 91.00);
+    insertLast("103032500158", "Dzaky Alam", 87.25);
+    insertLast("103032500159", "Aqila Fathatullayya", 93.50);
+    insertLast("103032500160", "Mahesa Putra", 82.00);
+    insertLast("103032500161", "Fadhil Asyam", 89.75);
+    insertLast("103032500162", "Rasya Iman", 79.00);
+    insertLast("103032500163", "Vendra Fausta", 90.50);
+    insertLast("103032500164", "Nayla Novtiera", 84.25);
+    insertLast("103032500165", "Badriah Nuraini", 86.00);
 }
 
 
